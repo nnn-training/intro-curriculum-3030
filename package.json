@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/node": "^15.12.4",
     "cookies": "0.8.0",
     "dayjs": "1.10.4",
     "http-auth": "^3.2.3",
