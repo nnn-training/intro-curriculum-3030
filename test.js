@@ -6,7 +6,7 @@ const assert = require('assert');
 const html = pug.renderFile('./views/posts.pug', {
   posts: [
     {
-      id: 1,
+      id: '4391976947991005_0d6aeb0d6ad6bc82d29857339d6f304b3054dd5b',
       content: "<script>alert('test');</script>",
       postedBy: 'guest1',
       trackingCookie: '4391976947991005_0d6aeb0d6ad6bc82d29857339d6f304b3054dd5b',
