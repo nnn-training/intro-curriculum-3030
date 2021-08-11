@@ -23,12 +23,13 @@ html(lang="ja")
       div.card.my-3
         div.card-header
           - let isPostedByAdmin = (post.postedBy === 'admin')
-          if isPostedByAdmin
-            span #{post.id} : 管理人 ★
-          else
-            span #{post.id} : ID:#{post.trackingCookie}
-        div.card-body
-          p.card-text(style="white-space:pre; overflow:auto;") #{post.content}
+if isPostedByAdmin
+      span #{post.id} : 管理人 ★
+    else
+      - let originalTrackingId = post.trackingCookie ? post.trackingCookie.split('_')[0] : ''
+      span #{post.id} : ID:#{originalTrackingId}
+div.card-body
+p.card-text(style="white-space:pre; overflow:auto;") #{post.content}
         div.card-footer
           div 投稿日時: #{post.formattedCreatedAt}
           - let isAdmin = (user === 'admin')
