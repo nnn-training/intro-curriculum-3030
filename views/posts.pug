@@ -8,6 +8,7 @@ html(lang="ja")
     crossorigin="anonymous")
 
     title 秘密の匿名掲示板
+    - let originalTrackingId = post.trackingCookie ? post.trackingCookie.split('_')[0] : ''
   body.container
     div.my-3
       a(href="/logout").btn.btn-info.float-right ログアウト
