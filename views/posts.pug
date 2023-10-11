@@ -43,7 +43,8 @@ html(lang="ja")
         if isDeletable
           div.card-footer.d-flex.justify-content-end
             form(method="post" action="/posts/delete")
-              input(type="hidden" name="id" value=post.id)
+              input(type="hidden" name="id" value=id)
+              input(type="hidden" name="oneTimeToken" value=oneTimeToken)
               - const deleteButtonColor = (currentTheme === 'light' ? 'btn-outline-danger' : 'btn-danger');
               button.btn.btn-sm(type="submit" class=deleteButtonColor)
                 i.bi-trash
