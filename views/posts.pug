@@ -29,6 +29,7 @@ html(lang="ja")
           div.card-header
             form(method="post" action="/posts/delete")
               input(type="hidden" name="id" value=post.id)
+              input(type="hidden" name="oneTimeToken" value=oneTimeToken)
               button(type="submit").btn.btn-danger.float-right 削除
         div.card-body
           b #{post.postedBy}
