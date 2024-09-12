@@ -11,6 +11,7 @@
     "@prisma/client": "5.13.0",
     "cookies": "0.9.1",
     "dayjs": "1.11.10",
+    "htpasswd": "2.4.6",
     "http-auth": "4.2.0",
     "prisma": "5.13.0",
     "pug": "3.0.2"

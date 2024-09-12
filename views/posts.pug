@@ -20,7 +20,8 @@ html(lang="ja")
             i.bi-gear-fill.ms-1
           ul.dropdown-menu.dropdown-menu-end(aria-labelledby="menu")
             li
-              - const changeThemeText = (currentTheme === 'light' ? 'ダークモードに切り替え' : 'ライトモードに切り替え');
+            //-  a.dropdown-item(href="/changeTheme") ライトモード・ダークモードの切り替え
+            - const changeThemeText = (currentTheme === 'light' ? 'ダークモードに切り替え' : 'ライトモードに切り替え');
               a.dropdown-item(href="/changeTheme") #{changeThemeText}
               a.dropdown-item(href="/logout") ログアウト
     each post in posts
@@ -33,12 +34,15 @@ html(lang="ja")
                 i.bi-patch-check-fill.ms-1
             - const tooltipTitle = `<small>${post.absoluteCreatedAt}</small>`
             small.card-text.float-end(data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" title=tooltipTitle) #{post.relativeCreatedAt}
+          //- p.card-text.lead!= post.content
           p.card-text.lead #{post.content}
         - const isDeletable = (user === post.postedBy || user === 'admin')
         if isDeletable
           div.card-footer.d-flex.justify-content-end
             form(method="post" action="/posts/delete")
-              input(type="hidden" name="id" value=post.id)
+              //-input(type="hidden" name="id" value=post.id)
+              - const idAndToken = {id: post.id, token: oneTimeToken};
+              input(type="hidden" name="idAndToken" value=idAndToken)
               button(type="submit").btn.btn-outline-danger.btn-sm
                 i.bi-trash
     div.fixed-bottom.p-4.bg-body
