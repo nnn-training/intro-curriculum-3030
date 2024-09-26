@@ -53,7 +53,7 @@ html(lang="ja")
         div.col-12
           - const textareaColor = (currentTheme === 'light' ? '' : 'bg-dark text-white');
           textarea.form-control(name="content" rows="4" placeholder="Ctrl(Command)+Enterで送信できます" class=textareaColor)
-          input(type="hidden" name="oneTimeToken" value=oneTimeToken)
+          input(type="hidden" name="oneTimeToken" value=oneTimeToken )
         div.col-12
           button(type="submit").btn.btn-primary.float-end
             i.bi-send
