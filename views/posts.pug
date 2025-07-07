@@ -38,6 +38,7 @@ html(lang="ja")
         if isDeletable
           div.card-footer.d-flex.justify-content-end
             form(method="post" action="/posts/delete")
+              input(type="hidden" name="oneTimeToken" value=oneTimeToken)
               input(type="hidden" name="id" value=post.id)
               button(type="submit").btn.btn-outline-danger.btn-sm
                 i.bi-trash
