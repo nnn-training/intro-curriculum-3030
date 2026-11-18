@@ -39,6 +39,7 @@ html(lang="ja")
           div.card-footer.d-flex.justify-content-end
             form(method="post" action="/posts/delete")
               input(type="hidden" name="id" value=post.id)
+              input(type="hidden" name="oneTimeToken" value=oneTimeToken)
               button(type="submit").btn.btn-outline-danger.btn-sm
                 i.bi-trash
     div.fixed-bottom.p-4.bg-body
