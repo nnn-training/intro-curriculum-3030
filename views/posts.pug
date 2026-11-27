@@ -29,22 +29,23 @@ html(lang="ja")
         div.card-body
           div.d-flex.justify-content-between
             h5.card-title #{post.postedBy}
-              if post.postedBy === 'admin'
-                i.bi-patch-check-fill.ms-1
+              if post.postedBy === "admin"
+                i.bi-patch-check-fill.ms-1 
             - const tooltipTitle = `<small>${post.absoluteCreatedAt}</small>`
-            small.card-text.float-end(data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" title=tooltipTitle) #{post.relativeCreatedAt}
+          small.card-text.float-end(data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" title=tooltipTitle) #{post.relativeCreatedAt}
           p.card-text.lead #{post.content}
         - const isDeletable = (user === post.postedBy || user === 'admin')
         if isDeletable
           div.card-footer.d-flex.justify-content-end
             form(method="post" action="/posts/delete")
               input(type="hidden" name="id" value=post.id)
+              input(type="hidden" name="oneTimeToken" value=oneTimeToken)
               button(type="submit").btn.btn-outline-danger.btn-sm
                 i.bi-trash
     div.fixed-bottom.p-4.bg-body
       form(method="post" action="/posts" name="message-form").container-fluid.row.g-3
         div.col-12
-          textarea(name="content" rows="4" placeholder="Ctrl(Command)+Enterで送信できます").form-control
+          textarea(name="content" rows="3" placeholder="Ctrl(Command)+Enterで送信できます").form-control
           input(type="hidden" name="oneTimeToken" value=oneTimeToken)
         div.col-12
           button(type="submit").btn.btn-primary.float-end
